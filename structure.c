@@ -2,9 +2,6 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-// prototypes
-
-
 // Initialize a student structure
 typedef struct node {
 // Declare the needed structure items
@@ -17,9 +14,9 @@ typedef struct node {
     struct node* next;
 } student_t;
 
-
-student_t pop(student_t*);
-student_t push(student_t*);
+// prototypes
+student_t* pop(student_t*);
+student_t* push(student_t*);
 bool checkUniqueID(int);
 void printAll(student_t*);
 void exitStack();
@@ -28,14 +25,13 @@ void instructions();
 
 int main(){
     // Bhavay
-
 }
 
-student_t pop(student_t* top){
+student_t* pop(student_t* top){
     // Nathaniel
 }
 
-student_t push(student_t* top){
+student_t* push(student_t* top){
     // saud
 }
 

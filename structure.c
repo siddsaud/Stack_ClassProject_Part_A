@@ -1,23 +1,25 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
-
-typedef struct {
-    char* name;
-    const int id;
-    float gpa;
+// Initialize a student structure
+typedef struct node {
+// Declare the needed structure items
+    int id;
+    char *name;
+    char *schoolName;
+    char *programName;
     int graduatingYear;
-    struct studentNode* next;
-} StudentNode;
-
+    float gpa;
+    struct node* next;
+} student_t;
 
 
 int main(){
+
 
 }
 
 
 void instructions(void) {
-	printf("Enter choice:\n1 Top\n2 Push\n3 Pop\n4 Print ");
+	printf("Enter choice:\n1 Top\n2 Push\n3 Pop\n4 Print \n5 Exit Stack Application");
 }

@@ -22,7 +22,7 @@ void printAll(student_t*);
 void exitStack();
 void instructions();
 void printTop(student_t*);
-
+void printStudent(student_t);
 
 int main(){
     // Bhavay
@@ -32,7 +32,7 @@ int main(){
     while(choice!=5){
         switch(choice){
             case 1:
-                printTop();
+                printTop(head);
                 break;
             case 2:
                 head=push(head);
@@ -51,6 +51,12 @@ int main(){
 }
 
 void printTop(student_t* top){
+    if(top==NULL){
+        printf("empty stack");
+        return;
+    }
+    printStudent(*top);
+    
 
 }
 student_t* pop(student_t* top){
@@ -72,10 +78,15 @@ void printAll(student_t* top){
 
 void exitStack(){
     // Bhavay
-
+    
 }
 
 
 void instructions() {
 	printf("Enter choice:\n1 Top\n2 Push\n3 Pop\n4 Print \n5 Exit Stack Application");
+}
+
+void printStudent(student_t student){
+    printf("\nid: %d\tname: %s\tGrad. Year: %d\t GPA: %lf\tProgram Name: %s\tSchool Name: %s\n", 
+    student.id, student.name, student.graduatingYear, student.gpa,student.programName, student.schoolName);
 }

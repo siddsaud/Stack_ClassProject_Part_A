@@ -17,7 +17,7 @@ typedef struct node {
 // prototypes
 student_t* pop(student_t*);
 student_t* push(student_t*);
-bool checkUniqueID(int);
+bool checkUniqueID(student_t*, int);
 void printAll(student_t*);
 void exitStack();
 void instructions();
@@ -67,9 +67,16 @@ student_t* push(student_t* top){
     // saud
 }
 
-bool checkUniqueID(int id){
-    // James
+bool checkUniqueID(student_t* head, int id){
 
+    // James
+    student_t* current=head;
+    while(current->next!=NULL){
+        if(head->id == id){
+            return false;
+        }
+    }
+    return true;
 }
 
 void printAll(student_t* top){

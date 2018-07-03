@@ -21,12 +21,38 @@ bool checkUniqueID(int);
 void printAll(student_t*);
 void exitStack();
 void instructions();
+void printTop(student_t*);
 
 
 int main(){
     // Bhavay
+    instructions();
+    student_t* head=NULL;
+    int choice;
+    while(choice!=5){
+        switch(choice){
+            case 1:
+                printTop();
+                break;
+            case 2:
+                head=push(head);
+                break;
+            case 3:
+                head=pop(head);
+                break;
+            case 4:
+                printAll(head);
+                break;
+            default:
+                printf("Invalis input! Please try again! \n");
+                break;
+        }
+    }
 }
 
+void printTop(student_t* top){
+
+}
 student_t* pop(student_t* top){
     // Nathaniel
 }

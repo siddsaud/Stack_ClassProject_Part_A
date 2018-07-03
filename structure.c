@@ -98,6 +98,19 @@ student_t *pop(student_t *top) {
 
     top = top->next;
 
+    if (popped->name) {
+
+        free(popped->name);
+    }
+    if (popped->schoolName) {
+
+        free(popped->schoolName);
+    }
+    if (popped->programName) {
+
+        free(popped->programName);
+    }
+    
     free(popped);
 
     return top;

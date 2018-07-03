@@ -60,7 +60,21 @@ void printTop(student_t* top){
 
 }
 student_t* pop(student_t* top){
-    // Nathaniel
+
+    if (top == NULL) {
+
+        return NULL;
+    }
+
+    printStudent(top);
+
+    student_t* popped = top;
+
+    top = top->next;
+
+    free(popped);
+
+    return top;
 }
 
 student_t* push(student_t* top){

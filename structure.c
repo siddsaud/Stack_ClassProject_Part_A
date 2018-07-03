@@ -75,6 +75,7 @@ bool checkUniqueID(student_t* head, int id){
         if(head->id == id){
             return false;
         }
+        current=current->next;
     }
     return true;
 }

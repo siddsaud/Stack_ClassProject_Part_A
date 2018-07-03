@@ -19,7 +19,7 @@ student_t* pop(student_t*);
 student_t* push(student_t*);
 bool checkUniqueID(student_t*, int);
 void printAll(student_t*);
-void exitStack();
+void exitStack(student_t* top);
 void instructions();
 void printTop(student_t*);
 void printStudent(student_t*);
@@ -84,7 +84,6 @@ student_t* push(student_t* top){
 
 bool checkUniqueID(student_t* head, int id){
 
-    // James
     student_t* current=head;
     while(current->next!=NULL){
         if(head->id == id){

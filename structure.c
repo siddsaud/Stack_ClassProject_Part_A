@@ -59,6 +59,7 @@ void printTop(student_t* top){
     
 
 }
+
 student_t* pop(student_t* top){
 
     if (top == NULL) {

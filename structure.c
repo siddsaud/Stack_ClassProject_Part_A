@@ -13,6 +13,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <string.h>
 
 #define FLUSH freopen(NULL, "r", stdin);
 
@@ -54,7 +55,7 @@ int main() {
     // Stores all functions used in the program
     void *(*methods[])(student_t *) = {printTop, push, pop, printAll, exitStack};
 
-    student_t *head = NULL;
+    student_t *head = (student_t*)malloc(1 * sizeof(student_t));
     int choice;
 
     while (true) {
@@ -130,8 +131,89 @@ void *pop(student_t *top) {
     return top;
 }
 
-void *push(student_t *top) {
-    // saud
+void *push(student_t* top){
+    //
+          student_t* newPtr;
+          int tempId = 0;
+          char *tempName;
+          char *tempSchoolName;
+          char *tempProgramName;
+          int tempGraduatingYear = 0;
+          float tempGpa = 0.0;
+          int len = 0;
+          int len2 = 0;
+          int len3 = 0;
+          
+          
+          do {
+              printf("Please enter a valid id: ");
+              FLUSH;
+              scanf ("%d",&tempId); 
+             if (!checkUniqueID(top,tempId)) {
+                  tempId = 0;
+              }
+              FLUSH;
+          } while (tempId == 0);
+         
+          
+          tempName = malloc(sizeof (char)*40);
+          do {
+              printf("Please enter a valid name \n");
+              fgets (tempName, 39, stdin);
+              tempName[strcspn(tempName, "\n")] = 0;
+              len = strlen(tempName);
+          } while(tempName == NULL || len == 0);
+          
+          tempSchoolName = malloc(sizeof (char)*80);
+          
+          do {
+              printf("Please enter a valid school name \n");
+              fgets (tempSchoolName, 79, stdin);
+              tempName[strcspn(tempSchoolName, "\n")] = 0;
+              len2 = strlen(tempSchoolName);
+          } while(tempSchoolName == NULL || len2 < 2);
+          
+          tempProgramName = malloc(sizeof (char)*80);
+          
+          do {
+              printf("Please enter a valid program name \n");
+              fgets (tempProgramName, 79, stdin);
+              tempName[strcspn(tempProgramName, "\n")] = 0;
+              len3 = strlen(tempProgramName);
+          
+          } while(tempProgramName == NULL || len3 < 2);
+          
+          
+          do {
+              printf("Please enter a valid graduating year\n");
+              scanf("%d",&tempGraduatingYear);
+              FLUSH;
+          } while(tempGraduatingYear == 0 );
+          
+          do {
+              printf("Please enter a GPA\n");
+              scanf("%f",&tempGpa);
+              FLUSH;
+          } while(tempGpa == 0.0);
+	
+	// create space for new node using malloc()
+        newPtr = (student_t*)malloc(sizeof(student_t));
+	
+	if(newPtr != NULL) {  // new node pointer is not NULL
+		// Push new node onto stack
+                newPtr->id = tempId;
+                newPtr->name = tempName;
+                newPtr->schoolName = tempSchoolName;
+                newPtr->programName = tempProgramName;
+                newPtr->graduatingYear = tempGraduatingYear;
+                newPtr->gpa = tempGpa;
+                newPtr->next = top;
+                top = newPtr;
+	} else {
+		printf("%d and it's information not inserted. No memory available.\n", tempId);
+	}
+        // Ensure to return pointer to new top of stack
+        return top;
 }
 
 /// Checks if a given id already exist in the given stack
@@ -179,7 +261,7 @@ void *exitStack(student_t *top) {
 
 /// Prints the current user choices
 void instructions() {
-    printf("Enter choice:\n1 Top\n2 Push\n3 Pop\n4 Print \n5 Exit Stack Application");
+    printf("Enter choice:\n1 Top\n2 Push\n3 Pop\n4 Print \n5 Exit Stack Application\n");
 }
 
 /// Prints a single student
